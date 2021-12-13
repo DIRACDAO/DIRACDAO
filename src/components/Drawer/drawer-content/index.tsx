@@ -5,6 +5,7 @@ import StakeIcon from "../../../assets/icons/stake.svg";
 import BondIcon from "../../../assets/icons/bond.svg";
 import WonderlandIcon from "../../../assets/icons/wonderland-nav-header.svg";
 import DashboardIcon from "../../../assets/icons/dashboard.svg";
+import DiracDaoLogo from "../../../assets/icons/DiracDaoLogo.png";
 import { trim, shorten } from "../../../helpers";
 import { useAddress } from "../../../hooks";
 import useBonds from "../../../hooks/bonds";
@@ -41,7 +42,7 @@ function NavContent() {
         <div className="dapp-sidebar">
             <div className="branding-header">
                 <Link href="https://wonderland.money" target="_blank">
-                    <img alt="" src={WonderlandIcon} />
+                    <img className="nav-logo" alt="" src={DiracDaoLogo} />
                 </Link>
 
                 {address && (
