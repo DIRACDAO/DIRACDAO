@@ -26,7 +26,7 @@ export const changeApproval = createAsyncThunk("wrapping/changeApproval", async 
 
     const addresses = getAddresses(networkID);
     const signer = provider.getSigner();
-    const memoContract = new ethers.Contract(addresses.MEMO_ADDRESS, wMemoTokenContract, signer);
+    const memoContract = new ethers.Contract(addresses.Dirac_ADDRESS, wMemoTokenContract, signer);
 
     let approveTx;
     try {

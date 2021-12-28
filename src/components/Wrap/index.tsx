@@ -27,7 +27,7 @@ function Wrap({ open, handleClose }: IAdvancedSettingsProps) {
     const isAppLoading = useSelector<IReduxState, boolean>(state => state.app.loading);
 
     const memoBalance = useSelector<IReduxState, string>(state => {
-        return state.account.balances && state.account.balances.memo;
+        return state.account.balances && state.account.balances.DP;
     });
     const wmemoBalance = useSelector<IReduxState, string>(state => {
         return state.account.balances && state.account.balances.wmemo;
@@ -46,7 +46,7 @@ function Wrap({ open, handleClose }: IAdvancedSettingsProps) {
     });
 
     const memoAllowance = useSelector<IReduxState, number>(state => {
-        return state.account.wrapping && state.account.wrapping.memo;
+        return state.account.wrapping && state.account.wrapping.DP;
     });
 
     const [isWrap, setIsWrap] = useState(true);
@@ -121,7 +121,7 @@ function Wrap({ open, handleClose }: IAdvancedSettingsProps) {
                     </IconButton>
                     <div className="wrap-price" onClick={() => setIsWrapPrice(!isWrapPrice)}>
                         <p>
-                            1 {isWrapPrice ? "MEMO" : "wMEMO"} = {`${trim(wrapPrice, 4)} ${isWrapPrice ? "wMEMO" : "MEMO"}`}
+                            1 {isWrapPrice ? "DP" : "wMEMO"} = {`${trim(wrapPrice, 4)} ${isWrapPrice ? "wMEMO" : "DP"}`}
                         </p>
                     </div>
                 </div>
@@ -142,7 +142,7 @@ function Wrap({ open, handleClose }: IAdvancedSettingsProps) {
                         startAdornment={
                             <InputAdornment position="start">
                                 <div className="wrap-action-input-text">
-                                    <p>{isWrap ? "MEMO" : "wMEMO"}</p>
+                                    <p>{isWrap ? "DP" : "wMEMO"}</p>
                                 </div>
                             </InputAdornment>
                         }

@@ -28,9 +28,9 @@ interface IAccountBalances {
 export const getBalances = createAsyncThunk("account/getBalances", async ({ address, networkID, provider }: IGetBalances): Promise<IAccountBalances> => {
     const addresses = getAddresses(networkID);
 
-    const memoContract = new ethers.Contract(addresses.MEMO_ADDRESS, MemoTokenContract, provider);
+    const memoContract = new ethers.Contract(addresses.DP_ADDRESS, MemoTokenContract, provider);
     const memoBalance = await memoContract.balanceOf(address);
-    const timeContract = new ethers.Contract(addresses.TIME_ADDRESS, TimeTokenContract, provider);
+    const timeContract = new ethers.Contract(addresses.Dirac_ADDRESS, TimeTokenContract, provider);
     const timeBalance = await timeContract.balanceOf(address);
     const wmemoContract = new ethers.Contract(addresses.WMEMO_ADDRESS, wMemoTokenContract, provider);
     const wmemoBalance = await wmemoContract.balanceOf(address);
@@ -77,14 +77,14 @@ export const loadAccountDetails = createAsyncThunk("account/loadAccountDetails",
 
     const addresses = getAddresses(networkID);
 
-    if (addresses.TIME_ADDRESS) {
-        const timeContract = new ethers.Contract(addresses.TIME_ADDRESS, TimeTokenContract, provider);
+    if (addresses.Dirac_ADDRESS) {
+        const timeContract = new ethers.Contract(addresses.Dirac_ADDRESS, TimeTokenContract, provider);
         timeBalance = await timeContract.balanceOf(address);
         stakeAllowance = await timeContract.allowance(address, addresses.STAKING_HELPER_ADDRESS);
     }
 
-    if (addresses.MEMO_ADDRESS) {
-        const memoContract = new ethers.Contract(addresses.MEMO_ADDRESS, MemoTokenContract, provider);
+    if (addresses.DP_ADDRESS) {
+        const memoContract = new ethers.Contract(addresses.DP_ADDRESS, MemoTokenContract, provider);
         memoBalance = await memoContract.balanceOf(address);
         unstakeAllowance = await memoContract.allowance(address, addresses.STAKING_ADDRESS);
 
@@ -246,17 +246,17 @@ export const calculateUserTokenDetails = createAsyncThunk("account/calculateUser
 export interface IAccountSlice {
     bonds: { [key: string]: IUserBondDetails };
     balances: {
-        memo: string;
-        time: string;
+        DP: string;
+        Dirac: string;
         wmemo: string;
     };
     loading: boolean;
     staking: {
-        time: number;
-        memo: number;
+        Dirac: number;
+        DP: number;
     };
     wrapping: {
-        memo: number;
+        DP: number;
     };
     tokens: { [key: string]: IUserTokenDetails };
 }
@@ -264,9 +264,9 @@ export interface IAccountSlice {
 const initialState: IAccountSlice = {
     loading: true,
     bonds: {},
-    balances: { memo: "", time: "", wmemo: "" },
-    staking: { time: 0, memo: 0 },
-    wrapping: { memo: 0 },
+    balances: { DP: "", Dirac: "", wmemo: "" },
+    staking: { Dirac: 0, DP: 0 },
+    wrapping: { DP: 0 },
     tokens: {},
 };
 

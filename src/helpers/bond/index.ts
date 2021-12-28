@@ -18,7 +18,7 @@ export const mim = new StableBond({
     reserveContractAbi: StableReserveContract,
     networkAddrs: {
         [Networks.AVAX]: {
-            bondAddress: "0x694738E0A438d90487b4a549b201142c1a97B556",
+            bondAddress: "0x8EA6fE46E43DfE22fa263bf8f19A209079CFf8a2",
             reserveAddress: "0x130966628846BFd36ff31a822705796e8cb8C18D",
         },
     },
@@ -43,7 +43,7 @@ export const wavax = new CustomBond({
 
 export const mimTime = new LPBond({
     name: "mim_time_lp",
-    displayName: "TIME-MIM LP",
+    displayName: "Dirac-MIM LP",
     bondToken: "MIM",
     bondIconSvg: MimTimeIcon,
     bondContractABI: LpBondContract,
@@ -54,12 +54,12 @@ export const mimTime = new LPBond({
             reserveAddress: "0x113f413371fc4cc4c9d6416cf1de9dfd7bf747df",
         },
     },
-    lpUrl: "https://www.traderjoexyz.com/#/pool/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb54f16fB19478766A268F172C9480f8da1a7c9C3",
+    lpUrl: "",
 });
 
 export const avaxTime = new CustomLPBond({
     name: "avax_time_lp",
-    displayName: "TIME-AVAX LP",
+    displayName: "Dirac-AVAX LP",
     bondToken: "AVAX",
     bondIconSvg: AvaxTimeIcon,
     bondContractABI: LpBondContract,
@@ -70,7 +70,7 @@ export const avaxTime = new CustomLPBond({
             reserveAddress: "0xf64e1c5B6E17031f5504481Ac8145F4c3eab4917",
         },
     },
-    lpUrl: "https://www.traderjoexyz.com/#/pool/AVAX/0xb54f16fB19478766A268F172C9480f8da1a7c9C3",
+    lpUrl: "",
 });
 
 export default [mim, wavax, mimTime, avaxTime];
