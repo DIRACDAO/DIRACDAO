@@ -54,7 +54,7 @@ export const mimTime = new LPBond({
             reserveAddress: "0x113f413371fc4cc4c9d6416cf1de9dfd7bf747df",
         },
     },
-    lpUrl: "",
+    lpUrl: "https://www.traderjoexyz.com/#/pool/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb54f16fB19478766A268F172C9480f8da1a7c9C3",
 });
 
 export const avaxTime = new CustomLPBond({
@@ -70,7 +70,7 @@ export const avaxTime = new CustomLPBond({
             reserveAddress: "0xf64e1c5B6E17031f5504481Ac8145F4c3eab4917",
         },
     },
-    lpUrl: "",
+    lpUrl: "https://www.traderjoexyz.com/#/pool/AVAX/0xb54f16fB19478766A268F172C9480f8da1a7c9C3",
 });
 
 export default [mim, wavax, mimTime, avaxTime];
